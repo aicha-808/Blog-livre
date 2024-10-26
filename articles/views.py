@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
+from django.http import HttpResponse
 from articles.forms import LivreForm
 from .models import Livre
 
@@ -9,6 +10,9 @@ def blogLivre(request):
     allLivre = Livre.objects.all()
     return render(request, "index.html", {'livres': allLivre}) 
 
+def liste_articles(request):
+    articles = Livre.objects.all()
+    return render(request, "articles.html", {'livres': articles}) 
 
 # Recupéré les articles envoyer par l'utilisateur depuis le formulaire
 def creer_livre(request):
@@ -52,3 +56,17 @@ def supprimer_livre(request, id):
 def detail_livre(request, id):
    livre = get_object_or_404(Livre, id=id)
    return render(request, 'detail_article.html', {'livre': livre})
+
+# telecharger un pdf
+def telecharger_pdf(request, id):
+    # Récupère le livre en fonction de son ID
+    livre = get_object_or_404(Livre, id=id)
+
+    # Vérifie que le fichier PDF existe
+    if not livre. lien_pdf:
+        return HttpResponse("Aucun fichier PDF disponible pour ce livre.", status=404)
+
+    # Ouvre le fichier PDF en tant que réponse téléchargeable
+    response = HttpResponse(livre. lien_pdf, content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="{livre.titre.replace(" ", "_")}.pdf"'
+    return response

@@ -11,7 +11,7 @@
   <body>
     <nav class="navbar navbar-expand-lg  py-2  border-bottom ">
         <div class="container px-5">
-          <a class="navbar-brand fs-2" href="{% url 'accueil' %}">Aicha Blog</a>
+          <a class="navbar-brand fs-2"  href="{% url 'accueil' %}"><i class="fa-solid fa-user rounded-circle p-1 "></i>BTQ OnliNe</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -35,16 +35,26 @@
           </div>
         </div>
       </nav> 
-    <section class="container p-5 mt-5 bg-secondary">
+    <section class="container-fluid p-5 mt-5 bg-secondary">
         <div class="row">
-            <h1 class="text-light">Détail du livre  {{livre.titre}} </h1>
-            <div class="col-12  mt-5">
-                <div class="card border-0 rounded-0">
+            <h1 class=" text-center">Détail du livre  {{livre.titre}} </h1>
+            <div class="col-lg-8 col-md-12  mt-5 mx-auto ">
+              <div class="card mb-3">
+                <div class="row g-0 ">
+                  <div class="col-md-12 col-lg-4 border " style="height: 350px;">
+                    <img src="{{ livre.image.url }}" class="img-fluid rounded-start"  alt="{{ livre.titre }}" style="object-fit: cover; width: 100%; height: 100%;">
+                  </div>
+                  <div class="col-md-12 col-lg-8  pt-3 border">
                     <div class="card-body">
-                    <h1>{{livre.titre}}</h1>
-                    <p>{{livre.contenu}}</p>
+                      <h5 class="card-title">{{livre.titre}}</h5>
+                      <p class="card-text">{{livre.resume}}</p>
+                      <p class="card-text mt-3-5"><small class="text-body-secondary">
+                        <a href="{% url 'telechargerpdf' livre.id %}" class="btn btn-warning">Télécharger le PDF</a>
+                      </small></p>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
         </div>
     </section>  

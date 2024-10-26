@@ -8,6 +8,7 @@ class Livre(models.Model):
     date_publication = models.DateField(auto_now_add=True)
     auteur = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='media/images/', blank=True, null=True)
+    lien_pdf = models.URLField(max_length=500, blank=True, null=True)
     
 
     def __str__(self):
