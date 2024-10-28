@@ -9,6 +9,7 @@ class Livre(models.Model):
     auteur = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='media/images/', blank=True, null=True)
     lien_pdf = models.URLField(max_length=500, blank=True, null=True)
+    audio = models.URLField(max_length=500, blank=True, null=True, help_text="Lien du livre audio")
     
 
     def __str__(self):

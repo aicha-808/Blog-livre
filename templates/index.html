@@ -10,11 +10,11 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </head>
-  <body>
-        <nav class="navbar navbar-expand-lg  py-2  border-bottom ">
+  <body style="padding-top: 50px;">
+        <nav class="navbar navbar-expand-lg  py-2  border-bottom fixed-top bg-light">
             <div class="container px-5">
-              <a class="navbar-brand fs-6 gap-2 d-flex align-items-center fw-bold"  href="{% url 'accueil' %}">
-                <i class="fa-solid fa-user rounded-circle p-1 "></i> <span > BTQ <br>OnliNe</span>
+              <a class="navbar-brand d-flex align-items-center flex-column gap-0 p-0 rounded-circle"  href="{% url 'accueil' %}">
+                <i class="fa-solid fa-book fs-3 p-0 m-0 "></i> <span class="text-uppercase fw-bold fs-4">OnliNe</span><span class="fs-6 text-uppercase m-0 p-0">library</span>
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
                   </li>
                   <li class="nav-item ms-3">
                     <a class="nav-link text-light" href="{% url 'useradmin' %}">
-                        <i class="fa-solid fa-user bg-warning rounded-circle p-1 "></i>
+                        <i class="fa-solid fa-user bg-secondary rounded-circle fs-4 p-1"></i>
                     </a>
                   </li>
                 </ul>
@@ -44,8 +44,8 @@
           </nav>  
       <section class= "container-fluid bg-primary p-5 mt-5">
         <div class= "row mt-4"> 
-          <div class= "col-lg-10 col-sm-12 mx-auto"> 
-            <h1 class="text-light titre">Bienvenue sur BTQ OnliNe, votre bibliothèque en ligne pour devenir un entrepreneur accompli.</h1>
+          <div class= "col-lg-10 col-sm-12 mx-auto text-center"> 
+            <h1 class="text-light titre">Bienvenue sur ONLINE <span class="fs-3"> LIBRARY </span>, votre bibliothèque en ligne pour devenir un entrepreneur accompli.</h1>
             <h4 class="text-light mt-2">Découvrez les meilleurs livres sur l'entrepreneuriat, les stratégies d'affaires et le développement
                 personnel, avec des résumés et des analyses pour vous aider à faire grandir votre entreprise.</h4>
             <a class="mt-3 btn btn-warning text-light rounded-5" href="{% url 'liste_articles' %}"> Voir plus </a>
